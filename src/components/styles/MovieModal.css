@@ -1,0 +1,241 @@
+
+/* Modal Background */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Modal Content */
+.model-content {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    background: #181818;
+    color: white;
+    width: 750px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.5s ease;
+}
+
+/* Movie Poster */
+.model-content img {
+    width: 250px;
+    min-width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.model-content img:hover {
+    transform: scale(1.03);
+}
+
+/* Movie Information */
+.model-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    min-width: 0;
+}
+
+.model-info h2 {
+    font-size: 26px;
+    color: #fff;
+    margin: 0;
+}
+
+.model-info p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: #e50914;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.close-btn:hover {
+    background: white;
+    color: #e50914;
+    transform: rotate(90deg);
+}
+
+/* Action Button */
+.model-action-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.model-action-btn:hover {
+    background: #b20710;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+    .model-content {
+        width: 600px;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .model-content img {
+        width: 200px;
+        min-width: 200px;
+        height: 300px;
+    }
+
+    .model-info h2 {
+        font-size: 22px;
+    }
+
+    .model-info p {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .model-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 45px 20px 20px;
+        gap: 18px;
+    }
+
+    .model-content img {
+        width: 180px;
+        min-width: 180px;
+        height: 250px;
+    }
+
+    .model-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .model-info h2 {
+        font-size: 21px;
+    }
+
+    .model-info p {
+        font-size: 14px;
+    }
+
+    .model-action-btn {
+        width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .model-content {
+        padding: 45px 15px 15px;
+    }
+
+    .model-content img {
+        width: 150px;
+        min-width: 150px;
+        height: 220px;
+    }
+
+    .model-info h2 {
+        font-size: 18px;
+    }
+
+    .close-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+    }
+}
+
+/* Touch Devices */
+@media (hover: none) {
+    .model-content img:hover {
+        transform: none;
+    }
+
+    .model-action-btn:hover {
+        transform: none;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .modal-overlay,
+    .model-content,
+    .model-content img,
+    .close-btn,
+    .model-action-btn {
+        animation: none;
+        transition: none;
+    }
+}
